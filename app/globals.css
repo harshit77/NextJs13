@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media only screen and (min-width: 1024px) {
+  .mainWrapper {
+    height: calc(100vh - 68px);
+    overflow: hidden;
+  }
+}
