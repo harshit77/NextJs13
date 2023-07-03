@@ -1,11 +1,11 @@
 "use client"
 
-import {   useEffect, useState } from "react";
+import { useState, Suspense } from "react";
 import Typography from "@/_components/Typography";
 import Tab from "@/_components/Tab";
 import TabItem from "@/app/_components/Tab/item";
-import DiscussionForum from "./DiscussionForum";
 import MarketStories from "./MarketStories";
+import DiscussionForum from "./DiscussionForum"
 
 export default function BottomAppBar() {
   const [activeTab, setActiveTab] = useState(true);
@@ -30,8 +30,9 @@ export default function BottomAppBar() {
           </Typography>
         </TabItem>
       </Tab>
-      {activeTab ? <DiscussionForum /> : <MarketStories />}
+      <Suspense fallback={<Typography component="body3" >Loading...</Typography>}>
+        {activeTab ? <DiscussionForum /> : <MarketStories />}
+      </Suspense>
     </div>
   );
 }
-
